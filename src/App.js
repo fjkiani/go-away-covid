@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
+
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import styles from "./styles/styles.css"
-// import Form from "react-bootstrap/Form";
 import Columns from "react-columns"
-import responsive from "./styles/responsive.js"
 import { getQueriesForElement } from "@testing-library/dom";
+import FormComponent from "./components/Form.js"
+import { Col, Row, Form } from "react-bootstrap";
+
+
 
 function App() {
   //to store api data
   const [latest, setLatest] = useState ([])
   const [results, setResults] = useState([]);
+  const [searchCountries, setSearchCountries] = useState("")
 
 
   useEffect(() => {
@@ -35,10 +39,15 @@ function App() {
    const date = new Date(parseInt(latest.updated))
   //  convert int into a string
    const lastUpdated = date.toString()
-    
+
+   //function to filter the country based on search
+    const filteredCountry = results.filter(item => {
+      return  searchCountries !== "" ? 
+      item.country.toLowerCase().includes(searchCountries) || item.country.toUpperCase().includes(searchCountries): item
+    })
 
 
-   const countries = results.map((data, i) => {
+   const countries = filteredCountry.map((data, i) => {
   
     return (
       <Card
@@ -59,7 +68,9 @@ function App() {
           <Card.Text>Tests done {data.tests}</Card.Text>
           <Card.Text>Critical {data.critical}</Card.Text>
         </Card.Body>
+        
         </Card>
+        
 
       )
     })
@@ -111,6 +122,16 @@ function App() {
       </Card.Footer>
     </Card>
   </CardDeck>
+  <Form>
+        <Form.Group controlId="formGroupSearch">
+          <Form.Control
+            type="text"
+            placeholder="Search for countries"
+            onChange={e => setSearchCountries(e.target.value)}
+          />
+        </Form.Group>
+      </Form>
+
   <Columns queries={queries}>{countries}</Columns>
   </div>
   )
