@@ -43,7 +43,10 @@ function App() {
    //function to filter the country based on search
     const filteredCountry = results.filter(item => {
       return  searchCountries !== "" ? 
-      item.country.toLowerCase().includes(searchCountries) || item.country.toUpperCase().includes(searchCountries): item
+      item.country.includes(searchCountries) 
+      : item
+
+
     })
 
 
