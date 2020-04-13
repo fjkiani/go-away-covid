@@ -41,13 +41,15 @@ function App() {
    const lastUpdated = date.toString()
 
    //function to filter the country based on search
-    const filteredCountry = results.filter(item => {
-      return  searchCountries !== "" ? 
-      item.country.includes(searchCountries) 
-      : item
-
-
-    })
+   const filteredCountry = results.filter(item => {
+    let country = item.country.toLowerCase()
+    let search = searchCountries.toLowerCase()
+    if (search) {
+      return search === country.slice(0, search.length) ? true : false
+    } else {
+      return true
+    }
+  })
 
 
    const countries = filteredCountry.map((data, i) => {
