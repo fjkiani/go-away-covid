@@ -10,6 +10,8 @@ import { getQueriesForElement } from "@testing-library/dom";
 import FormComponent from "./components/Form.js"
 import { Col, Row, Form } from "react-bootstrap";
 import ReactGA from "react-ga"
+import NumberFormat from 'react-number-format';
+
 
 
 
@@ -22,10 +24,9 @@ function App() {
 
   useEffect(() => {
 
-    //GA
     ReactGA.initialize('UA-163972670-1');
-    ReactGA.pageview("/");
-
+    ReactGA.pageview(window.location.pathname + window.location.search);
+ 
 
 
     axios
@@ -72,14 +73,48 @@ function App() {
         <Card.Img variant="top" src ={data.countryInfo.flag}></Card.Img>
         <Card.Body>
           <Card.Title>{data.country}</Card.Title>
-          <Card.Text>Brave Souls Fighting {data.cases}</Card.Text>
-          <Card.Text>Lost but never forgotten {data.deaths}</Card.Text>
-          <Card.Text>Blessed & Recovered {data.recovered}</Card.Text>
-          <Card.Text> impacted today {data.todayCases}</Card.Text>
-          <Card.Text>Lost today but never forgotten {data.todayDeaths}</Card.Text>
-          <Card.Text>Active {data.active}</Card.Text>
-          <Card.Text>Tests done {data.tests}</Card.Text>
-          <Card.Text>Critical {data.critical}</Card.Text>
+          
+          {/* <Card.Text>Brave Souls Fighting {data.cases}</Card.Text> */}
+          <Card.Text> 
+          <NumberFormat value={data.cases} displayType={'text'} thousandSeparator={true}/> Cases
+        </Card.Text>
+
+        <Card.Text> 
+          <NumberFormat value={data.deaths} displayType={'text'} thousandSeparator={true}/> Lives Lost
+        </Card.Text>
+
+        <Card.Text> 
+          <NumberFormat value={data.recovered} displayType={'text'} thousandSeparator={true}/> Blessed & Recovered
+        </Card.Text>
+
+
+        <Card.Text> 
+          <NumberFormat value={data.todayCases} displayType={'text'} thousandSeparator={true}/> impacted today
+        </Card.Text>
+
+        
+        <Card.Text> 
+          <NumberFormat value={data.todayDeaths} displayType={'text'} thousandSeparator={true}/>Lives lost today
+        </Card.Text>
+
+          {/* <Card.Text> {data.todayDeaths} Lives lost today </Card.Text> */}
+          {/* <NumberFormat value={data.todayDeaths} displayType={'text'} thousandSeparator={true}/> */}
+
+          <Card.Text>
+          <NumberFormat value={data.active} displayType={'text'} thousandSeparator={true}/> Active 
+          </Card.Text>
+
+
+          <Card.Text>
+          <NumberFormat value={data.tests} displayType={'text'} thousandSeparator={true}/> Tests done 
+          </Card.Text>
+
+
+          <Card.Text>
+          <NumberFormat value={data.critical} displayType={'text'} thousandSeparator={true}/> Critical 
+          </Card.Text>
+
+
         </Card.Body>
         
         </Card>
@@ -97,38 +132,49 @@ function App() {
         query: 'min-width: 1000px'
       }];
 
+      // //track users interaction 
+      // record user interactions that don't trigger a change in URL.
+      const HandleSearchBar = () => {
+        ReactGA.event({
+          category: 'Search Bar',
+          action: 'Clicked on search bar',
+          label: "Home",
+        });
+      }
 
   return (
       <div> 
+    <h2>F to COVID-19</h2>
+    <h3> By: Fahad J. Kiani</h3>
     <CardDeck>
-    <Card className="cases card" bg="light" >
+    <Card className="cases card" >
       <Card.Body>
         <Card.Title>Brave Souls Fighting</Card.Title>
-        <Card.Text>
+        {/* <Card.Text>
           {latest.cases}
-        </Card.Text>
+        </Card.Text> */}
+        <NumberFormat value={latest.cases} displayType={'text'} thousandSeparator={true}
+ />
       </Card.Body>
       <Card.Footer>
       <small className="update">latest update: {lastUpdated}</small>
       </Card.Footer>
     </Card>
-    <Card className="casesLost" bg="danger">
+    <Card className="casesLost">
       <Card.Body>
         <Card.Title>Lost but never forgotten</Card.Title>
-        <Card.Text>
-        {latest.deaths}
-        </Card.Text>
+        <NumberFormat value={latest.deaths} displayType={'text'} thousandSeparator={true}
+ />
       </Card.Body>
       <Card.Footer>
       <small className="update">latest update: {lastUpdated}</small>
       </Card.Footer>
     </Card>
-    <Card className="recovered" bg="success" >
+    <Card className="recovered"  >
       <Card.Body>
         <Card.Title>Blessed Recovered Souls</Card.Title>
-        <Card.Text>
-        {latest.recovered}
-        </Card.Text>
+        <NumberFormat value={latest.recovered} displayType={'text'} thousandSeparator={true}
+ />
       </Card.Body>
       <Card.Footer>
         <small className="update">latest update: {lastUpdated}</small>
@@ -139,8 +185,10 @@ function App() {
         <Form.Group controlId="formGroupSearch">
           <Form.Control
             type="text"
-            placeholder="Search for countries"
+            placeholder="Search your country"
             onChange={e => setSearchCountries(e.target.value)}
+            //search what user searches for GA
+            onClick={HandleSearchBar}
           />
         </Form.Group>
       </Form>

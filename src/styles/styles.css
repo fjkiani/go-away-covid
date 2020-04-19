@@ -1,6 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+body {
+    font-family: 'Bangers', cursive;
+}
+
 .card {
     text-align: center;
     margin: 3rem;
     text-transform: capitalize;
 }
+.card-deck {
+    padding: 5em;
+}
 
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+.h5, h5 {
+    font-size: 1.95rem;
+    font-weight: lighter;
+    letter-spacing: 10px;
+    color: #343a40;
+
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: 3.375rem .75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: currentColor;
+    background-color:    white;
+    background-clip: padding-box;
+    border: 11px solid      #80bdff ;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    text-align: center;
+    margin-top: 1em;
+}
+
+/* .cases {
+    background-color:    #ffffcc;
+
+}
+
+.casesLost {
+    background-color:      #ffff80;
+}
+
+.recovered {
+    background-color:  #ffffcc;
+} */
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    background-color: aliceblue;
+}
+
+span {
+    font-size: 3em;
+}
+
+@media screen  and (max-width: 700px) {
+    .card-deck {
+        padding: 0;
+    }
+
+}
