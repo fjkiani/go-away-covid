@@ -9,6 +9,7 @@ import Columns from "react-columns"
 import { getQueriesForElement } from "@testing-library/dom";
 import FormComponent from "./components/Form.js"
 import { Col, Row, Form } from "react-bootstrap";
+import ReactGA from "react-ga"
 
 
 
@@ -20,10 +21,17 @@ function App() {
 
 
   useEffect(() => {
+
+    //GA
+    ReactGA.initialize('UA-163972670-1');
+    ReactGA.pageview("/");
+
+
+
     axios
       .all([
-        axios.get("https://corona.lmao.ninja/all"),
-        axios.get("https://corona.lmao.ninja/countries")
+        axios.get("https://corona.lmao.ninja/v2/all"),
+        axios.get("https://corona.lmao.ninja/v2/countries")
       ])
       .then(responseArr => {
         setLatest(responseArr[0].data);
@@ -104,7 +112,7 @@ function App() {
       <small className="update">latest update: {lastUpdated}</small>
       </Card.Footer>
     </Card>
-    <Card className="casesLost" bg="light">
+    <Card className="casesLost" bg="danger">
       <Card.Body>
         <Card.Title>Lost but never forgotten</Card.Title>
         <Card.Text>
@@ -115,7 +123,7 @@ function App() {
       <small className="update">latest update: {lastUpdated}</small>
       </Card.Footer>
     </Card>
-    <Card className="recovered" bg="light" >
+    <Card className="recovered" bg="success" >
       <Card.Body>
         <Card.Title>Blessed Recovered Souls</Card.Title>
         <Card.Text>
