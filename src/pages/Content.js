@@ -4,19 +4,20 @@ import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import styles from "./styles/styles.css"
+import styles from "../styles/styles.css"
 import Columns from "react-columns"
 import { getQueriesForElement } from "@testing-library/dom";
-import FormComponent from "./components/Form.js"
+import FormComponent from "../components/Form.js"
 import { Col, Row, Form } from "react-bootstrap";
 import ReactGA from "react-ga"
 import NumberFormat from 'react-number-format';
-import logo from "./styles/f-to-covid-us.jpg"
+import logo from "../styles/f-to-covid-us.jpg"
+import Navbar from "../components/Nav"
 
 
 
 
-function App() {
+function Content() {
   //to store api data
   const [latest, setLatest] = useState ([])
   const [results, setResults] = useState([]);
@@ -145,7 +146,9 @@ function App() {
 
   return (
       <div> 
-    <h2><img src={logo}></img></h2>
+    <div class="logo">
+    <img src={logo}></img></div>
+    <Navbar/>
     <CardDeck>
     <Card className="cases card" >
       <Card.Body>
@@ -198,4 +201,4 @@ function App() {
   )
 }
 
-export default App;
+export default Content;

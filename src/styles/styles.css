@@ -75,3 +75,20 @@ span {
     }
 
 }
+
+/* nav */
+
+.nav {
+    justify-content: center;
+    font-size: 50px;
+}
+
+.logo {
+    margin-left: -15px;
+}
+
+a {
+    color: cornflowerblue;
+    text-decoration: none;
+    background-color: transparent;
+}

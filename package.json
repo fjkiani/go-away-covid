@@ -13,7 +13,9 @@
     "react-columns": "^1.2.1",
     "react-dom": "^16.13.1",
     "react-ga": "^2.7.0",
+    "react-icons": "^3.10.0",
     "react-number-format": "^4.4.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -38,6 +40,7 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^1.0.3"
+    "http-proxy-middleware": "^1.0.3",
+    "react-social-icons": "^4.1.0"
   }
 }
