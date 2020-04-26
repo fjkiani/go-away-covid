@@ -11,6 +11,7 @@ import FormComponent from "./components/Form.js"
 import { Col, Row, Form } from "react-bootstrap";
 import ReactGA from "react-ga"
 import NumberFormat from 'react-number-format';
+import logo from "./styles/f-to-covid-us.jpg"
 
 
 
@@ -144,8 +145,7 @@ function App() {
 
   return (
       <div> 
-    <h2>F to COVID-19</h2>
-    <h3> By: Fahad J. Kiani</h3>
+    <h2><img src={logo}></img></h2>
     <CardDeck>
     <Card className="cases card" >
       <Card.Body>
