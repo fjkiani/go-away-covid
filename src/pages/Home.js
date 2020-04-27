@@ -123,8 +123,6 @@ function Home() {
 
 
         </Card.Body>
-        {loading ? (results) : (
-         <ReactBootStrap.Spinner animation="grow" />
         
     )}
         </Card>
