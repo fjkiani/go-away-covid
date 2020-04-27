@@ -11,12 +11,16 @@ import FormComponent from "../components/Form.js"
 import { Col, Row, Form } from "react-bootstrap";
 import ReactGA from "react-ga"
 import NumberFormat from 'react-number-format';
-
-
-
-
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import { css } from "@emotion/core";
 import Navbar from "../components/Nav"
 
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 
 
@@ -25,6 +29,7 @@ function Home() {
   const [latest, setLatest] = useState ([])
   const [results, setResults] = useState([]);
   const [searchCountries, setSearchCountries] = useState("")
+  const [loading, setLoading] = useState(true)
 
 
 
@@ -43,6 +48,7 @@ function Home() {
       .then(responseArr => {
         setLatest(responseArr[0].data);
         setResults(responseArr[1].data)
+        setLoading(false)
       })
       .catch(err => {
         console.log(err);
@@ -70,7 +76,9 @@ function Home() {
    const countries = filteredCountry.map((data, i) => {
   
     return (
+      
       <div>
+        
       <Card
       key= {i}
         bg="light"
@@ -124,7 +132,7 @@ function Home() {
 
         </Card.Body>
         
-    )}
+  
         </Card>
         </div>
 
@@ -152,6 +160,14 @@ function Home() {
 
   return (
       <div> 
+
+          <ClimbingBoxLoader
+          css={override}
+          size={20}
+          color={"#5f9ea0"}
+          loading={loading}
+        />
+
     <CardDeck>
     <Card className="cases card" >
       <Card.Body>

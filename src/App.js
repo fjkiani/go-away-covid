@@ -4,6 +4,7 @@ import React, { useEffect, useState, Component } from "react";
 import Home from "./pages/Home"
 import About from "./pages/About"
 
+
 import Nav from "./components/Nav"
 import {
   BrowserRouter as Router,
