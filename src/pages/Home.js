@@ -25,7 +25,7 @@ function Home() {
   const [latest, setLatest] = useState ([])
   const [results, setResults] = useState([]);
   const [searchCountries, setSearchCountries] = useState("")
-  const [loading, setLoading] = useState(false);
+
 
 
   useEffect(() => {
