@@ -17,18 +17,19 @@ export default function NavBar() {
     return (
       <div>
       <div class="logo">
-      <img src={logo}></img>
+      <Link to="/"><img src={logo}></img></Link>
     </div>
         <div className="navItems">
             <Nav>
     
-             <Link to="/">Home</Link>
-             <br></br>
+            <ul className="navLinks">
+             <Link to="/">
+             Home </Link>
         
      
               <Link to="/About">About</Link>
     
-
+              </ul>
         <Nav.Item>
           <Nav.Link href="https://github.com/fjkiani/no-to-covid" target="_blank"><DiGithub/></Nav.Link>
      </Nav.Item>
