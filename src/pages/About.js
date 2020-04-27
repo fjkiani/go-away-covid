@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from "./Nav"
+import Navbar from "../components/Nav"
 import { Link } from "react"
 import styles from "../styles/styles.css"
 import { DiGithub } from "react-icons/di";
