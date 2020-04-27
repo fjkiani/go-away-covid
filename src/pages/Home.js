@@ -12,7 +12,7 @@ import { Col, Row, Form } from "react-bootstrap";
 import ReactGA from "react-ga"
 import NumberFormat from 'react-number-format';
 import Spinner from 'react-bootstrap/Spinner'
-import * as ReactBootStrap from "react-bootstrap"
+
 
 
 import Navbar from "../components/Nav"
