@@ -21,12 +21,13 @@ export default function NavBar() {
     </div>
         <div className="navItems">
             <Nav>
-          <Nav.Item>
-             <Nav.Link href="/">Home</Nav.Link>
-        </Nav.Item>
-         <Nav.Item>
-              <Nav.Link href="/About">About</Nav.Link>
-       </Nav.Item> 
+    
+             <Link to="/">Home</Link>
+             <br></br>
+        
+     
+              <Link to="/About">About</Link>
+    
 
         <Nav.Item>
           <Nav.Link href="https://github.com/fjkiani/no-to-covid" target="_blank"><DiGithub/></Nav.Link>
