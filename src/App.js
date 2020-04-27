@@ -2,7 +2,8 @@
 import React, { useEffect, useState, Component } from "react";
 
 import Home from "./pages/Home"
-import About from "./pages/About"
+import About from "./components/About"
+
 import Nav from "./components/Nav"
 import {
   BrowserRouter as Router,
@@ -10,7 +11,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Axios from "axios";
+
 
 
 export default function App() {
