@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './pages/App';
+import App from './App.js';
+import Spinner from 'react-bootstrap/Spinner'
 
 import * as serviceWorker from './serviceWorker';
 

@@ -11,17 +11,21 @@ import FormComponent from "../components/Form.js"
 import { Col, Row, Form } from "react-bootstrap";
 import ReactGA from "react-ga"
 import NumberFormat from 'react-number-format';
-import logo from "../styles/f-to-covid-us.jpg"
+import Spinner from 'react-bootstrap/Spinner'
+import * as ReactBootStrap from "react-bootstrap"
+
+
 import Navbar from "../components/Nav"
 
 
 
 
-function Content() {
+function Home() {
   //to store api data
   const [latest, setLatest] = useState ([])
   const [results, setResults] = useState([]);
   const [searchCountries, setSearchCountries] = useState("")
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -48,7 +52,7 @@ function Content() {
 
   //convert the updated date from MS into a an int format 
    const date = new Date(parseInt(latest.updated))
-  //  convert int into a string
+  // convert int into a string
    const lastUpdated = date.toString()
 
    //function to filter the country based on search
@@ -66,6 +70,7 @@ function Content() {
    const countries = filteredCountry.map((data, i) => {
   
     return (
+      <div>
       <Card
       key= {i}
         bg="light"
@@ -118,9 +123,12 @@ function Content() {
 
 
         </Card.Body>
+        {loading ? (results) : (
+         <ReactBootStrap.Spinner animation="grow" />
         
+    )}
         </Card>
-        
+        </div>
 
       )
     })
@@ -146,9 +154,6 @@ function Content() {
 
   return (
       <div> 
-    <div class="logo">
-    <img src={logo}></img></div>
-    <Navbar/>
     <CardDeck>
     <Card className="cases card" >
       <Card.Body>
@@ -201,4 +206,4 @@ function Content() {
   )
 }
 
-export default Content;
+export default Home;
