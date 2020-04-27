@@ -25,7 +25,7 @@ export default function NavBar() {
              <Nav.Link href="/">Home</Nav.Link>
         </Nav.Item>
          <Nav.Item>
-              <Nav.Link href="/About">About</Nav.Link>
+              <Link href="/About">About</Link>
        </Nav.Item> 
 
         <Nav.Item>
