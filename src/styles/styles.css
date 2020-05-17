@@ -24,7 +24,7 @@ h3 {
     font-size: 1.95rem;
     font-weight: lighter;
     letter-spacing: 10px;
-    color: cornflowerblue;
+    color: black;
 
 }
 
@@ -64,7 +64,7 @@ h3 {
     min-height: 1px;
     padding: 1.25rem;
     background-color: aliceblue;
-    color: #5f9ea0;
+    color: black;
 }
 
 span {
@@ -92,7 +92,7 @@ span {
 }
 
 a {
-    color: cornflowerblue;
+    color: red;
     text-decoration: none;
     background-color: transparent;
 }

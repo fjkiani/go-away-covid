@@ -85,7 +85,7 @@ function Home() {
         text ="dark"
         className="text-center"
         >
-        <Card.Img variant="top" src ={data.countryInfo.flag}></Card.Img>
+        <Card.Img variant="top" src ={data.countryInfo.flag} alt= "country flag"></Card.Img>
         <Card.Body>
           <Card.Title>{data.country}</Card.Title>
           
@@ -203,10 +203,13 @@ function Home() {
       </Card.Footer>
     </Card>
   </CardDeck>
+  
   <Form>
+        
         <Form.Group controlId="formGroupSearch">
           <Form.Control
             type="text"
+            name="name"
             placeholder="Search your country"
             onChange={e => setSearchCountries(e.target.value)}
             //search what user searches for GA

@@ -17,7 +17,7 @@ export default function NavBar() {
     return (
       <div>
       <div class="logo">
-      <Link to="/"><img src={logo}></img></Link>
+      <Link to="/"><img src={logo} alt = "logo"></img></Link>
     </div>
         <div className="navItems">
             <Nav>
