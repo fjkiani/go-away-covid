@@ -13,9 +13,9 @@ function About() {
     return (
         <div className="about">
             <div className="heading">
-            <h4>This is project started as a tutorial on YouTube by  Hong Ly. Fahad Kiani followed along and deployed his version. We are working together on with a goal to help everyone around the world have access to COVID-19 data.    </h4>
+            <h4>The goal of this project is to provide reliable COVID-19 data to everyone around the world.    </h4>
             <br></br>
-            <h4>This is an open source project. If you would like to contribute, you can find the github link above </h4>
+            <h4>It is an open source project built by Fahad and Hong. If you would like to contribute, you can find the github link above </h4>
             <br></br>
             <div class="aboutParagraph">
             <br></br>
